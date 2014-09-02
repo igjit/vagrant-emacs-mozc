@@ -20,9 +20,23 @@ VMを起動します。初回は時間がかかります。
 $ vagrant up
 ```
 
-動作確認
+`vagrant up`でboxファイルのダウンロードに失敗する場合は、boxファイルを手動でダウンロード、追加してみてください。
 ```
-$ echo -e '(0 CreateSession)\n(1 SendKey 1 97)' | ./mozc_emacs_helper.sh 
+$ curl -O https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
+$ vagrant box add trusty-server-cloudimg-amd64 ./trusty-server-cloudimg-amd64-vagrant-disk1.box
+$ vagrant up
+```
+
+試しにVMにSSH接続します。接続が確認できたら`exit`で抜けます。
+```
+$ vagrant ssh
+ :
+vagrant@vagrant-ubuntu-trusty-64:~$ exit
+```
+
+mozcの動作確認
+```
+$ echo -e '(0 CreateSession)\n(1 SendKey 1 97)' | ./mozc_emacs_helper.sh
 ((mozc-emacs-helper . t)(version . "1.13.1651.102")(config . ((preedit-method . roman))))
 ((emacs-event-id . 0)(emacs-session-id . 1)(output . ()))
 ((emacs-event-id . 1)(emacs-session-id . 1)(output . ((id . "2112461956057362500")(mode . hiragana)(consumed . t)(preedit . ((cursor . 1)(segment ((annotation . underline)(value . "あ")(value-length . 1)(key . "あ")))))(candidates . ((size . 1)(candidate ((index . 0)(value . "あ")(annotation . ((description . "ひらがな")))(id . 0)))(position . 0)(category . suggestion)(display-type . main)(footer . ((label . "Tabキーで選択")))))(status . ((activated . t)(mode . hiragana)(comeback-mode . hiragana)))(all-candidate-words . ((candidates ((id . 0)(index . 0)(value . "あ")(annotation . ((description . "ひらがな")))))(category . suggestion))))))
