@@ -42,7 +42,7 @@ $ echo -e '(0 CreateSession)\n(1 SendKey 1 97)' | ./mozc_emacs_helper.sh
 ((emacs-event-id . 1)(emacs-session-id . 1)(output . ((id . "2112461956057362500")(mode . hiragana)(consumed . t)(preedit . ((cursor . 1)(segment ((annotation . underline)(value . "あ")(value-length . 1)(key . "あ")))))(candidates . ((size . 1)(candidate ((index . 0)(value . "あ")(annotation . ((description . "ひらがな")))(id . 0)))(position . 0)(category . suggestion)(display-type . main)(footer . ((label . "Tabキーで選択")))))(status . ((activated . t)(mode . hiragana)(comeback-mode . hiragana)))(all-candidate-words . ((candidates ((id . 0)(index . 0)(value . "あ")(annotation . ((description . "ひらがな")))))(category . suggestion))))))
 ```
 
-[mozc.el](https://mozc.googlecode.com/svn/trunk/src/unix/emacs/mozc.el)をダウンロードして`load-path`通った場所に置いてください。
+[mozc.el](https://mozc.googlecode.com/svn/trunk/src/unix/emacs/mozc.el)をダウンロードして`load-path`の通った場所に置いてください。
 
 `init.el`の設定例。`/path/to`の部分は適切に設定してください。
 ```lisp
